@@ -30,3 +30,26 @@ function encriptar (stringEncriptada) {
     return stringEncriptada
 }
 
+function btnDescriptografar() {
+    
+    const textoDescriptado = descriptar(textArea.value);
+    mensagem.value = textoDescriptado;
+    textArea.value = ""; 
+}
+
+
+function descriptar (stringDescriptada) {
+    
+    let matrizCode = [["e" , "enter"], ["i" , "imes"], ["a" , "ai"], ["o", "ober"], ["u", "ufat"]];
+    
+    stringDescriptada = stringDescriptada.toLowerCase();
+
+    for(let i = 0; i < matrizCode.length; i++) {
+        if(stringDescriptada.includes(matrizCode[i][1])) {
+            stringDescriptada = stringDescriptada.replaceAll(matrizCode[i][1], matrizCode[i][0]);
+        }
+    }
+
+    return stringDescriptada
+}
+
